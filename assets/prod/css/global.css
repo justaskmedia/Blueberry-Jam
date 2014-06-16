@@ -1,0 +1,43 @@
+*, *:before, *:after {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+body {
+  font-family: 'Arial', sans-serif;
+  font-size: 62.5%;
+  padding: 10px; }
+
+h1 {
+  font-family: "Georgia", serif;
+  font-size: 25px;
+  font-size: 2.5rem; }
+
+p, li {
+  font-size: 16px;
+  font-size: 1.6rem;
+  color: #333; }
+
+a {
+  color: #29A3FF;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  text-decoration: underline; }
+  a:hover {
+    color: #8fd0ff; }
+
+img {
+  max-width: 100%; }
+
+#wrapper {
+  width: 90%;
+  max-width: 450px;
+  margin: 0 auto;
+  display: block; }
+
+h1 {
+  padding-bottom: 7px;
+  margin-bottom: 15px;
+  border-bottom: 1px dotted #29A3FF;
+  color: #29A3FF; }
+
+/*# sourceMappingURL=.min.css.map */
