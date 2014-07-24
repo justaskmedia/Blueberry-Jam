@@ -10,8 +10,6 @@ var gulp = require('gulp'),
 
 gulp.task('js', function () {
    return gulp.src('assets/dev/js/**/*.js')
-      .pipe(jshint())
-      .pipe(jshint.reporter('default'))
       .pipe(uglify())
       .pipe(concat('production.js'))
       .pipe(gulp.dest('assets/prod/js'))
@@ -48,16 +46,20 @@ gulp.task('browser-sync', function () {
    });
 });
 
-
+gulp.task('imagemin', function() {
+  return gulp.src('assets/dev/img/*')
+    .pipe(imagemin({
+        progressive: true,
+        svgoPlugins: [{removeViewBox: false}],
+        use: [pngcrush()]
+    }))
+    .pipe(gulp.dest('assets/prod/img'));
+});
 
 gulp.task('default', ['sass', 'browser-sync'], function () {
     gulp.watch("assets/dev/sass/**/*.scss", ['sass']);
+    gulp.watch("assets/dev/js/**/*.js", ['js']);
+    gulp.watch("assets/dev/img/**/*", ['imagemin']);
 
-    return gulp.src('assets/dev/img/*')
-        .pipe(imagemin({
-            progressive: true,
-            svgoPlugins: [{removeViewBox: false}],
-            use: [pngcrush()]
-        }))
-        .pipe(gulp.dest('assets/prod/img'));
+
 });
